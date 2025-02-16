@@ -26,4 +26,9 @@
     border: none;
     padding: 5px 10px;
     border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .logout-button:hover {
+    background-color: #c82333;
   }

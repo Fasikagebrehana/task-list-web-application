@@ -4,10 +4,10 @@ import { useTasks } from "../context/TaskContext";
 import TaskForm from "../components/TaskForm";
 import TaskList from "../components/TaskList";
 import FilterButtons from "../components/FilterButtons";
-import "../styles/index.css"; // Import global styles
+import "../styles/index.css";
 
 export default function Home() {
-  const { user, logout } = useAuth();
+  const { user } = useAuth(); // No need for logout here
   const { tasks, setFilter } = useTasks();
 
   if (!user) {
@@ -16,10 +16,7 @@ export default function Home() {
 
   return (
     <div className="container">
-      <h1>Welcome, {user.username}!</h1>
-      <button onClick={logout} className="logout-button">
-        Logout
-      </button>
+      <h1>Welcome, {user.username}!</h1> {/* Keep the welcome message */}
       <TaskForm />
       <FilterButtons setFilter={setFilter} />
       <TaskList tasks={tasks} />

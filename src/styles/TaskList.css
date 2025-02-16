@@ -12,6 +12,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-radius: 4px;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .task-item:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
   .task-item.completed {
@@ -24,6 +30,7 @@
     padding: 5px 10px;
     border: none;
     border-radius: 3px;
+    font-size: 14px;
   }
   
   .task-actions button.complete {
