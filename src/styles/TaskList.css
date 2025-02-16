@@ -1,16 +1,5 @@
-/* Fade-in animation for task items */
-@keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .task-list {
+/* Task List Styles */
+.task-list {
     list-style: none;
     padding: 0;
   }
@@ -28,14 +17,24 @@
     animation: fadeIn 0.3s ease-in-out; /* Fade-in animation for tasks */
   }
   
-  .task-item:hover {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
   .task-item.completed {
     text-decoration: line-through;
     color: #888;
     opacity: 0.7; /* Fade out completed tasks */
+  }
+  
+  .task-content {
+    flex: 1;
+  }
+  
+  .task-details {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
+  }
+  
+  .task-details span {
+    margin-right: 10px;
   }
   
   .task-actions button {
@@ -59,4 +58,23 @@
   
   .task-actions button:hover {
     transform: scale(1.05); /* Slightly scale up on hover */
+  }
+  
+  /* Dark Theme Styles */
+  .dark .task-item {
+    background-color: #3d3d3d;
+    border-color: #4d4d4d;
+    color: #ffffff;
+  }
+  
+  .dark .task-details {
+    color: #ccc;
+  }
+  
+  .dark .task-actions button.complete {
+    background-color: #218838;
+  }
+  
+  .dark .task-actions button.delete {
+    background-color: #c82333;
   }

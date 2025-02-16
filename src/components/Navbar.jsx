@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import "../styles/Navbar.css";
 
-export default function Navbar() {
+export default function Navbar({ darkMode, toggleDarkMode }) {
   const { user, logout } = useAuth();
 
   return (
@@ -13,9 +13,14 @@ export default function Navbar() {
       </Link>
       <div>
         {user ? (
-          <button onClick={logout} className="logout-button">
-            Logout
-          </button>
+          <>
+            <button onClick={logout} className="logout-button">
+              Logout
+            </button>
+            <button onClick={toggleDarkMode} className="dark-mode-toggle">
+              {darkMode ? "🌞" : "🌙"}
+            </button>
+          </>
         ) : (
           <>
             <Link to="/login" className="nav-link">

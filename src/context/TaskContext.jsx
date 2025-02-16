@@ -17,9 +17,12 @@ export const TaskProvider = ({ children }) => {
   }, [user]);
 
   // Add a new task
-  const addTask = (task) => {
+  const addTask = (task, dueDate, priority) => {
     if (user) {
-      const newTasks = [...tasks, { id: Date.now(), text: task, completed: false }];
+      const newTasks = [
+        ...tasks,
+        { id: Date.now(), text: task, completed: false, dueDate, priority },
+      ];
       setTasks(newTasks);
       localStorage.setItem(`tasks_${user.username}`, JSON.stringify(newTasks));
     }
@@ -35,6 +38,16 @@ export const TaskProvider = ({ children }) => {
       localStorage.setItem(`tasks_${user.username}`, JSON.stringify(newTasks));
     }
   };
+
+  const reorderTasks = (startIndex, endIndex) => {
+    const newTasks = Array.from(tasks);
+    const [removed] = newTasks.splice(startIndex, 1);
+    newTasks.splice(endIndex, 0, removed);
+    setTasks(newTasks);
+    localStorage.setItem(`tasks_${user.username}`, JSON.stringify(newTasks));
+  };
+
+  
 
   // Delete a task
   const deleteTask = (id) => {

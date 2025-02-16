@@ -4,44 +4,45 @@ import "../styles/index.css";
 
 export default function TaskForm() {
   const [task, setTask] = useState("");
+  const [dueDate, setDueDate] = useState("");
+  const [priority, setPriority] = useState("low");
   const { addTask } = useTasks();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (task.trim()) {
-      addTask(task);
+      addTask(task, dueDate, priority);
       setTask("");
+      setDueDate("");
+      setPriority("low");
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ marginBottom: "20px" }}>
+    <form onSubmit={handleSubmit} className="task-form">
       <input
         type="text"
         placeholder="Add a new task"
         value={task}
         onChange={(e) => setTask(e.target.value)}
-        style={{
-          width: "100%",
-          padding: "10px",
-          border: "1px solid #ddd",
-          borderRadius: "4px",
-          fontSize: "16px",
-        }}
+        className="task-input"
       />
-      <button
-        type="submit"
-        style={{
-          marginTop: "10px",
-          padding: "10px",
-          width: "100%",
-          background: "#007bff",
-          color: "white",
-          border: "none",
-          borderRadius: "4px",
-          cursor: "pointer",
-        }}
+      <input
+        type="date"
+        value={dueDate}
+        onChange={(e) => setDueDate(e.target.value)}
+        className="task-input"
+      />
+      <select
+        value={priority}
+        onChange={(e) => setPriority(e.target.value)}
+        className="task-input"
       >
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+      <button type="submit" className="add-task-button">
         Add Task
       </button>
     </form>

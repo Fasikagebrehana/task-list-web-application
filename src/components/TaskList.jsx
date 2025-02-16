@@ -8,8 +8,20 @@ export default function TaskList() {
   return (
     <ul className="task-list">
       {tasks.map((task) => (
-        <li key={task.id} className={`task-item ${task.completed ? "completed" : ""}`}>
-          <span>{task.text}</span>
+        <li
+          key={task.id}
+          className={`task-item ${task.completed ? "completed" : ""}`}
+        >
+          {/* Task Content */}
+          <div className="task-content">
+            <span>{task.text}</span>
+            <div className="task-details">
+              {task.dueDate && <span>Due: {task.dueDate}</span>}
+              {task.priority && <span>Priority: {task.priority}</span>}
+            </div>
+          </div>
+
+          {/* Task Actions */}
           <div className="task-actions">
             <button
               onClick={() => toggleTask(task.id)}
@@ -17,7 +29,10 @@ export default function TaskList() {
             >
               {task.completed ? "Undo" : "Complete"}
             </button>
-            <button onClick={() => deleteTask(task.id)} className="delete">
+            <button
+              onClick={() => deleteTask(task.id)}
+              className="delete"
+            >
               Delete
             </button>
           </div>
