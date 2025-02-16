@@ -1,0 +1,37 @@
+/* Task List Styles */
+.task-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .task-item {
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .task-item.completed {
+    text-decoration: line-through;
+    color: #888;
+  }
+  
+  .task-actions button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+  }
+  
+  .task-actions button.complete {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .task-actions button.delete {
+    background-color: #dc3545;
+    color: white;
+  }
