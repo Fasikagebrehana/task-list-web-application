@@ -13,8 +13,13 @@
   background-color: #007bff;
   color: white;
   font-size: 14px;
+  transition: transform 0.2s ease-in-out; /* Button hover animation */
 }
 
 .filter-buttons button.active {
   background-color: #0056b3;
+}
+
+.filter-buttons button:hover {
+  transform: scale(1.05);
 }

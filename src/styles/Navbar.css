@@ -1,5 +1,14 @@
-/* Navbar Styles */
-.navbar {
+/* Slide-in animation for the navbar */
+@keyframes slideIn {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+  .navbar {
     background-color: #007bff;
     color: white;
     padding: 10px 20px;
@@ -7,6 +16,7 @@
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.5s ease-in-out; /* Slide-in animation */
   }
   
   .navbar a {
@@ -27,8 +37,10 @@
     padding: 5px 10px;
     border-radius: 4px;
     cursor: pointer;
+    transition: transform 0.2s ease-in-out; /* Button hover animation */
   }
   
   .logout-button:hover {
     background-color: #c82333;
+    transform: scale(1.05); /* Slightly scale up on hover */
   }
