@@ -1,22 +1,54 @@
-/* Fade-in animation for the page */
-@keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  body {
+/* Global Styles */
+body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
-    animation: fadeIn 0.5s ease-in-out; /* Apply fade-in animation to the body */
   }
   
+  /* Navbar Styles */
+  .navbar {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+    font-weight: bold;
+  }
+  
+  .navbar a:hover {
+    text-decoration: underline;
+  }
+  
+  .logout-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .dark-mode-toggle {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
+  /* Container Styles */
   .container {
     max-width: 600px;
     margin: 0 auto;
@@ -24,34 +56,149 @@
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-    animation: fadeIn 0.5s ease-in-out; /* Fade-in for the container */
-  }
-/* Dark Mode Styles */
-.dark {
-    background-color: #1a1a1a;
-    color: #ffffff;
+    margin-top: 0; /* Remove margin-top to eliminate space */
   }
   
-  .dark .container {
-    background-color: #2d2d2d;
-    color: #ffffff;
+  /* Task Form Styles */
+  .task-form {
+    margin-bottom: 20px;
   }
   
+  .form-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .task-input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    flex: 1;
+  }
+  
+  .task-input[type="date"] {
+    flex: 1;
+  }
+  
+  .task-input[type="text"] {
+    flex: 2;
+  }
+  
+  .add-task-button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-task-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Filter Buttons Styles */
+  .filter-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .filter-buttons button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .filter-buttons button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Task List Styles */
+  .task-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .task-item {
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 4px;
+    transition: box-shadow 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .task-item.completed {
+    text-decoration: line-through;
+    color: #888;
+    opacity: 0.7;
+  }
+  
+  .task-content {
+    flex: 1;
+  }
+  
+  .task-details {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
+  }
+  
+  .task-details span {
+    margin-right: 10px;
+  }
+  
+  .task-actions button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .task-actions button.complete {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .task-actions button.delete {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .task-actions button:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Dark Theme Styles */
   .dark .task-item {
     background-color: #3d3d3d;
     border-color: #4d4d4d;
-    color: #ffffff;
+    color: white;
   }
   
-  .dark .auth-form {
-    background-color: #3d3d3d;
-    border-color: #4d4d4d;
-    color: #ffffff;
+  .dark .task-details {
+    color: #ccc;
   }
   
-  .dark .auth-form input {
-    background-color: #2d2d2d;
-    border-color: #4d4d4d;
-    color: #ffffff;
+  .dark .task-actions button.complete {
+    background-color: #218838;
+  }
+  
+  .dark .task-actions button.delete {
+    background-color: #c82333;
   }

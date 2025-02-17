@@ -20,31 +20,33 @@ export default function TaskForm() {
 
   return (
     <form onSubmit={handleSubmit} className="task-form">
-      <input
-        type="text"
-        placeholder="Add a new task"
-        value={task}
-        onChange={(e) => setTask(e.target.value)}
-        className="task-input"
-      />
-      <input
-        type="date"
-        value={dueDate}
-        onChange={(e) => setDueDate(e.target.value)}
-        className="task-input"
-      />
-      <select
-        value={priority}
-        onChange={(e) => setPriority(e.target.value)}
-        className="task-input"
-      >
-        <option value="low">Low</option>
-        <option value="medium">Medium</option>
-        <option value="high">High</option>
-      </select>
-      <button type="submit" className="add-task-button">
-        Add Task
-      </button>
+      <div className="form-row">
+        <input
+          type="text"
+          placeholder="Add a new task"
+          value={task}
+          onChange={(e) => setTask(e.target.value)}
+          className="task-input"
+        />
+        <input
+          type="date"
+          value={dueDate}
+          onChange={(e) => setDueDate(e.target.value)}
+          className="task-input"
+        />
+        <select
+          value={priority}
+          onChange={(e) => setPriority(e.target.value)}
+          className="task-input"
+        >
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+        <button type="submit" className="add-task-button">
+          Add Task
+        </button>
+      </div>
     </form>
   );
 }

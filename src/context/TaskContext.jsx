@@ -4,9 +4,9 @@ import { useAuth } from "./AuthContext";
 const TaskContext = createContext();
 
 export const TaskProvider = ({ children }) => {
-  const { user } = useAuth(); // Get the logged-in user
+  const { user } = useAuth();
   const [tasks, setTasks] = useState([]);
-  const [filter, setFilter] = useState("all");
+  const [filter, setFilter] = useState("all"); // Define setFilter here
 
   // Load tasks for the current user
   useEffect(() => {
@@ -39,16 +39,6 @@ export const TaskProvider = ({ children }) => {
     }
   };
 
-  const reorderTasks = (startIndex, endIndex) => {
-    const newTasks = Array.from(tasks);
-    const [removed] = newTasks.splice(startIndex, 1);
-    newTasks.splice(endIndex, 0, removed);
-    setTasks(newTasks);
-    localStorage.setItem(`tasks_${user.username}`, JSON.stringify(newTasks));
-  };
-
-  
-
   // Delete a task
   const deleteTask = (id) => {
     if (user) {
@@ -67,7 +57,7 @@ export const TaskProvider = ({ children }) => {
 
   return (
     <TaskContext.Provider
-      value={{ tasks: filteredTasks, addTask, toggleTask, deleteTask, setFilter }}
+      value={{ tasks: filteredTasks, addTask, toggleTask, deleteTask, setFilter }} // Pass setFilter here
     >
       {children}
     </TaskContext.Provider>

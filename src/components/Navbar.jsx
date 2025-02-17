@@ -18,7 +18,7 @@ export default function Navbar({ darkMode, toggleDarkMode }) {
               Logout
             </button>
             <button onClick={toggleDarkMode} className="dark-mode-toggle">
-              {darkMode ? "🌞" : "🌙"}
+              {darkMode ? "🌞 Light Mode" : "🌙 Dark Mode"}
             </button>
           </>
         ) : (

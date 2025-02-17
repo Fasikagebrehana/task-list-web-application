@@ -6,9 +6,9 @@ import TaskList from "../components/TaskList";
 import FilterButtons from "../components/FilterButtons";
 import "../styles/index.css";
 
-export default function Home() {
-  const { user } = useAuth(); // No need for logout here
-  const { tasks, setFilter } = useTasks();
+export default function Home({ darkMode }) {
+  const { user } = useAuth();
+  const { tasks, setFilter } = useTasks(); // Destructure setFilter here
 
   if (!user) {
     return <div className="container">Please log in to view tasks.</div>;
@@ -16,10 +16,12 @@ export default function Home() {
 
   return (
     <div className="container">
-      <h1>Welcome, {user.username}!</h1> {/* Keep the welcome message */}
+      <h1>Welcome, {user.username}!</h1>
       <TaskForm />
-      <FilterButtons setFilter={setFilter} />
-      <TaskList tasks={tasks} />
+      <FilterButtons setFilter={setFilter} /> {/* Pass setFilter here */}
+      <div className={darkMode ? "task-list-dark" : "task-list-light"}>
+        <TaskList tasks={tasks} />
+      </div>
     </div>
   );
 }

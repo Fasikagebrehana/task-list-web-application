@@ -14,7 +14,6 @@
     align-items: center;
     border-radius: 4px;
     transition: box-shadow 0.3s ease, opacity 0.3s ease;
-    animation: fadeIn 0.3s ease-in-out; /* Fade-in animation for tasks */
   }
   
   .task-item.completed {
@@ -58,23 +57,4 @@
   
   .task-actions button:hover {
     transform: scale(1.05); /* Slightly scale up on hover */
-  }
-  
-  /* Dark Theme Styles */
-  .dark .task-item {
-    background-color: #3d3d3d;
-    border-color: #4d4d4d;
-    color: #ffffff;
-  }
-  
-  .dark .task-details {
-    color: #ccc;
-  }
-  
-  .dark .task-actions button.complete {
-    background-color: #218838;
-  }
-  
-  .dark .task-actions button.delete {
-    background-color: #c82333;
   }
